@@ -255,16 +255,16 @@
         return;
       }
 
-      let message = "Your Order:\\n\\n";
+      let message = "Your Order:\n\n";
 
       cart.forEach(function(item, index) {
         message +=
           (index + 1) + ". " +
           item.name + " - ₹" +
-          item.price + "\\n";
+          item.price + "\n";
       });
 
-      message += "\\nTotal: ₹" + total;
+      message += "\nTotal: ₹" + total;
 
       alert(message);
     }
