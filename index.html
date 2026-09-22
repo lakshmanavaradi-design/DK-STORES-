@@ -1,18 +1,274 @@
-<header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DK Stores</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    header {
+      background: #ffffff;
+      padding: 18px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      margin: auto;
+      border-radius: 50%;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 42px;
+      border: 3px solid #222;
+    }
+
+    h1 {
+      margin: 10px 0 5px;
+      font-size: 28px;
+    }
+
+    .subtitle {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .container {
+      padding: 15px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .welcome {
+      background: white;
+      padding: 18px;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .welcome h2 {
+      margin-top: 0;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 12px;
+      padding: 12px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 130px;
+      background: #eeeeee;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 45px;
+      margin-bottom: 10px;
+    }
+
+    .product h3 {
+      margin: 5px 0;
+      font-size: 17px;
+    }
+
+    .price {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 8px 0;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #222;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    .cart {
+      position: fixed;
+      bottom: 15px;
+      left: 15px;
+      right: 15px;
+      max-width: 670px;
+      margin: auto;
+      background: #222;
+      color: white;
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    }
+
+    .cart button {
+      background: white;
+      color: #222;
+      margin-top: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 100px 15px 120px;
+      color: #666;
+      font-size: 13px;
+    }
+
+    @media (min-width: 600px) {
+      .products {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">✝</div>
     <h1>DK Stores</h1>
-    <p>Your Local Grocery Store</p>
+    <div class="subtitle">Your Local Grocery Store</div>
   </header>
 
   <div class="container">
 
     <div class="welcome">
       <h2>Welcome to DK Stores</h2>
-      <p>Order your daily grocery items from DK Stores.</p>
-
-      <button class="button">View Products</button>
-      <button class="button">My Orders</button>
+      <p>
+        Quality grocery products at affordable prices.
+        Order from your mobile and get delivery to your location.
+      </p>
     </div>
 
+    <h2>Products</h2>
+
+    <div class="products">
+
+      <div class="product">
+        <div class="product-image">🍚</div>
+        <h3>Rice</h3>
+        <div class="price">₹60 / kg</div>
+        <button onclick="addToCart('Rice', 60)">Add to Cart</button>
+      </div>
+
+      <div class="product">
+        <div class="product-image">🌾</div>
+        <h3>Wheat</h3>
+        <div class="price">₹50 / kg</div>
+        <button onclick="addToCart('Wheat', 50)">Add to Cart</button>
+      </div>
+
+      <div class="product">
+        <div class="product-image">🛢️</div>
+        <h3>Cooking Oil</h3>
+        <div class="price">₹150 / L</div>
+        <button onclick="addToCart('Cooking Oil', 150)">Add to Cart</button>
+      </div>
+
+      <div class="product">
+        <div class="product-image">🍬</div>
+        <h3>Sugar</h3>
+        <div class="price">₹45 / kg</div>
+        <button onclick="addToCart('Sugar', 45)">Add to Cart</button>
+      </div>
+
+      <div class="product">
+        <div class="product-image">🧂</div>
+        <h3>Salt</h3>
+        <div class="price">₹25 / kg</div>
+        <button onclick="addToCart('Salt', 25)">Add to Cart</button>
+      </div>
+
+      <div class="product">
+        <div class="product-image">🥛</div>
+        <h3>Milk</h3>
+        <div class="price">₹60 / L</div>
+        <button onclick="addToCart('Milk', 60)">Add to Cart</button>
+      </div>
+
+    </div>
   </div>
 
+  <div class="cart">
+    <div id="cartText">Cart: 0 items | Total: ₹0</div>
+    <button onclick="checkout()">View Cart / Order</button>
+  </div>
+
+  <footer>
+    DK Stores<br>
+    Pothayyapeta Village, NGR Puram,<br>
+    Ranasthalam Mandal, Srikakulam District, AP
+  </footer>
+
+  <script>
+    let cart = [];
+    let total = 0;
+
+    function addToCart(name, price) {
+      cart.push({
+        name: name,
+        price: price
+      });
+
+      total += price;
+
+      document.getElementById("cartText").innerText =
+        "Cart: " + cart.length + " items | Total: ₹" + total;
+
+      alert(name + " added to cart");
+    }
+
+    function checkout() {
+      if (cart.length === 0) {
+        alert("Your cart is empty.");
+        return;
+      }
+
+      let message = "Your Order:\\n\\n";
+
+      cart.forEach(function(item, index) {
+        message +=
+          (index + 1) + ". " +
+          item.name + " - ₹" +
+          item.price + "\\n";
+      });
+
+      message += "\\nTotal: ₹" + total;
+
+      alert(message);
+    }
+  </script>
+
 </body>
+</html>
